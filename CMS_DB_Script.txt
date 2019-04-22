@@ -1,0 +1,49 @@
+ # Member Table
+-----------------
+
+CREATE TABLE CMS_Member(Member_ID VARCHAR(10) NOT NULL PRIMARY KEY, First_Name CHAR(50) NOT NULL, Last_Name CHAR(50) NOT NULL, Age NUMBER(2) NOT NULL, Gender CHAR(6) NOT NULL, DoB VARCHAR(10) NOT NULL, Contact_Number NUMBER(10) NOT NULL, Alt_Contact_Number NUMBER(10), Email_ID VARCHAR(50) NOT NULL, Password VARCHAR(15) NOT NULL, Plan_Code VARCHAR(10) NOT NULL, Coverage_Start_Date VARCHAR(10) NOT NULL, Coverage_End_Date VARCHAR(10) NOT NULL, Address_Line_1 VARCHAR(100) NOT NULL, Address_Line_2 CHAR(100) NOT NULL, City CHAR(50) NOT NULL, State CHAR(50) NOT NULL, Zip_Code NUMBER(10) NOT NULL);
+
+CREATE SEQUENCE Member_Id MINVALUE 1 START WITH 1 INCREMENT by 1;
+
+ 
+# Admin Table
+-----------------
+
+CREATE TABLE CMS_Admin(Admin_ID VARCHAR(10) NOT NULL PRIMARY KEY, First_Name CHAR(50) NOT NULL, Last_Name CHAR(50) NOT NULL, Age NUMBER(2) NOT NULL, Gender CHAR(6) NOT NULL, DoB VARCHAR(10) NOT NULL, Contact_Number NUMBER(10) NOT NULL, Alt_Contact_Number NUMBER(10), Email_ID VARCHAR(50) NOT NULL, Password VARCHAR(15) NOT NULL);
+
+CREATE SEQUENCE Admin_ID MINVALUE 1 START WITH 1 INCREMENT by 1;
+
+
+ # Claim Table
+-----------------
+
+CREATE TABLE CMS_Claim(Claim_ID NUMBER(5) NOT NULL PRIMARY KEY, Member_ID VARCHAR(10) NOT NULL, Claim_Service_Date VARCHAR(10) NOT NULL, Claim_Submission_Date VARCHAR(10) NOT NULL, Claim_Processing_Date VARCHAR(10) NOT NULL, Claim_Status VARCHAR(10) NOT NULL, Claim_Amount NUMBER(10) NOT NULL, Approved_Amount NUMBER(10) NOT NULL);
+
+CREATE SEQUENCE Claim_ID MINVALUE 1 START WITH 1 INCREMENT by 1;
+ 
+
+# Plan code Table
+-----------------
+
+CREATE TABLE CMS_Plan_Code(Plan_Code varchar(10) NOT NULL PRIMARY KEY, Plan_Description CHAR(50) NOT NULL, Coverage1 CHAR(50) NOT NULL, Coverage2 CHAR(50) NOT NULL, Coverage3 CHAR(50) NOT NULL, Coverage4 CHAR(50) NOT NULL, Coverage5 CHAR(50) NOT NULL);
+
+CREATE SEQUENCE Plan_Code MINVALUE 1 START WITH 1 INCREMENT by 1;
+
+# Member Registration table
+------------------------------
+
+CREATE TABLE CMS_MEMBER_REGISTRATION(Member_ID varchar(10),Registration_Status VARCHAR(10));
+
+
+
+
+*****************************************************************************************************
+ INSERT 
+*****************************************************************************************************
+
+# PlanCode
+INSERT INTO CMS_PLAN_CODE VALUES('p1','Medicare','coverage A','coverage B','coverage C','coverage D','coverage E');
+INSERT INTO CMS_PLAN_CODE VALUES('p2','Home','coverage A','coverage B','coverage C','coverage D','coverage E');
+INSERT INTO CMS_PLAN_CODE VALUES('p3','Vehicle','coverage A','coverage B','coverage C','coverage D','coverage E');
+INSERT INTO CMS_PLAN_CODE VALUES('p4','Property','coverage A','coverage B','coverage C','coverage D','coverage E');
+
